@@ -21,7 +21,7 @@
         "postinstall": "./node_modules/bower/bin/bower install",
         "pretest": "./node_modules/browserify/bin/cmd.js -t debowerify -d spec/*.spec.js > spec/tests.js",
         "test": "./node_modules/mocha-phantomjs/bin/mocha-phantomjs spec/index.html",
-        "test-browser": "trap 'kill $serverPid' EXIT; ./node_modules/httpserver/httpserver.js -p 9999 & serverPid=$!; open http://localhost:9999/spec/index.html; wait",
+        "test-browser": "trap 'kill $serverPid' EXIT; ./node_modules/browserify/bin/cmd.js -t debowerify -d spec/*.spec.js > spec/tests.js; ./node_modules/httpserver/httpserver.js -p 9999 & serverPid=$!; open http://localhost:9999/spec/index.html; wait",
         "prestart": "./node_modules/browserify/bin/cmd.js -t debowerify -d lib/**.js > bundle.js",
         "start": "trap 'kill $serverPid' EXIT; ./node_modules/httpserver/httpserver.js -p 9999 & serverPid=$!; open http://localhost:9999/index.html; wait"
     },
