@@ -1,5 +1,5 @@
 {
-  "name": "browserify-debowerify-mocha-phantomjs-example",
+  "name": "browserify-bower-mocha-phantomjs-example",
   "version": "0.0.1",
   "description": "Simple example of browserify with multiple dependency managers and tests across both",
   "main": "index.js",
@@ -7,7 +7,8 @@
     "underscore": "=1.6.0"
   },
   "devDependencies": {
-    "browserify": "=5.x.x",
+    "bower": "=1.3.x",
+    "browserify": "=5.10.x",
     "chai": "=1.9.1",
     "debowerify": "=0.8.x",
     "httpserver": "=0.1.x",
@@ -16,6 +17,7 @@
     "phantomjs": "=1.9.x"
   },
   "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install",
     "pretest": "./node_modules/browserify/bin/cmd.js -t debowerify -d spec/*.spec.js > spec/tests.js",
     "test": "./node_modules/mocha-phantomjs/bin/mocha-phantomjs spec/index.html",
     "test-browser": "trap 'kill $serverPid' EXIT; ./node_modules/httpserver/httpserver.js -p 9999 & serverPid=$!; open http://localhost:9999/spec/index.html; wait",
