@@ -1,4 +1,4 @@
-Browserify with Bower, Mocha & Phantom
+Browserify with Bower, Mocha, Phantom and Handlebars
 ==========
 
 Install
