@@ -24,7 +24,7 @@
     "pretest": "./node_modules/browserify/bin/cmd.js -t debowerify -d spec/*.spec.js -o spec/tests.js",
     "test": "./node_modules/mocha-phantomjs/bin/mocha-phantomjs spec/index.html",
     "test-browser": "trap 'kill $serverPid' EXIT; ./node_modules/browserify/bin/cmd.js -t debowerify -d spec/*.spec.js -o spec/tests.js; ./node_modules/httpserver/httpserver.js -p 9999 & serverPid=$!; open http://localhost:9999/spec/index.html; wait",
-    "prestart": "./node_modules/browserify/bin/cmd.js -t [hbsfy -e hbrs] -t debowerify -d lib/**.js -o bundle.js",
+    "prestart": "./node_modules/browserify/bin/cmd.js -t hbsfy -t debowerify -d lib/**.js -o bundle.js",
     "start": "trap 'kill $serverPid' EXIT; ./node_modules/httpserver/httpserver.js -p 9999 & serverPid=$!; open http://localhost:9999/index.html; wait"
   },
   "author": "justin j. moses <justinjmoses@gmail.com>",
